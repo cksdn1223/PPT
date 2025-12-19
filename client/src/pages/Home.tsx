@@ -269,7 +269,7 @@ export default function Home() {
                     <ul className="space-y-3 text-lg">
                       <li className="flex items-center gap-3">
                         <Check className="w-5 h-5 text-primary" /> 타이핑을 하되
-                        꼭 듣기
+                        이해가 중요
                       </li>
                       <li className="flex items-center gap-3">
                         <Check className="w-5 h-5 text-primary" /> 핵심 키워드만
@@ -464,7 +464,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                 >
                   <div className="font-mono text-accent mb-4 text-2xl">
-                    PEER_LEARNING_PROTOCOL
+                    COLLABORATION
                   </div>
                   <h2
                     className="text-7xl font-bold mb-8 leading-tight"
@@ -475,9 +475,9 @@ export default function Home() {
                   >
                     TOGETHER
                     <br />
-                    WE GO
+                    MAKE
                     <br />
-                    FURTHER
+                    BATTER
                   </h2>
                   <motion.div
                     initial={{ scale: 0.5, opacity: 0 }}
@@ -634,7 +634,7 @@ export default function Home() {
                 <div className="space-y-6">
                   {[
                     {
-                      title: "정보처리기사",
+                      title: "기사 자격증",
                       type: "ESSENTIAL",
                       desc: "개발자의 기본 소양. 필기와 실기 모두 수업 내용과 연계됩니다.",
                       active: true,
@@ -648,7 +648,7 @@ export default function Home() {
                     {
                       title: "전공 자격증",
                       type: "OPTIONAL",
-                      desc: "자신의 전공을 살린 특화 자격증 하나를 추가하세요.",
+                      desc: "자신의 특성을 살린 특화 자격증 하나를 추가하세요.",
                       active: false,
                     },
                   ].map((cert, idx) => (
@@ -1027,8 +1027,8 @@ export default function Home() {
                 </h3>
                 <ul className="space-y-3 text-lg">
                   <li className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-primary" /> 타이핑을 하되 꼭
-                    듣기
+                    <Check className="w-5 h-5 text-primary" /> 타이핑을 하되
+                    이해가 중요
                   </li>
                   <li className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-primary" /> 핵심 키워드만
@@ -1236,14 +1236,14 @@ export default function Home() {
             <div className="absolute inset-0 opacity-20 bg-[url('/images/collaboration_abstract.png')] bg-cover bg-center mix-blend-overlay" />
             <div className="relative z-10">
               <div className="font-mono text-accent mb-4 text-xl">
-                PEER_LEARNING_PROTOCOL
+                COLLABORATION
               </div>
               <h2 className="font-heading text-6xl md:text-7xl font-bold mb-8 leading-tight">
                 TOGETHER
                 <br />
-                WE GO
+                MAKE
                 <br />
-                FURTHER
+                BATTER
               </h2>
               <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
@@ -1436,7 +1436,7 @@ export default function Home() {
             >
               {[
                 {
-                  title: "정보처리기사",
+                  title: "기사 자격증",
                   type: "ESSENTIAL",
                   desc: "개발자의 기본 소양. 필기와 실기 모두 수업 내용과 연계됩니다.",
                   active: true,
@@ -1448,9 +1448,9 @@ export default function Home() {
                   active: true,
                 },
                 {
-                  title: "전공 자격증",
+                  title: "기타 자격증",
                   type: "OPTIONAL",
-                  desc: "자신의 전공을 살린 특화 자격증 하나를 추가하세요.",
+                  desc: "자신의 특성을 살린 특화 자격증 하나를 추가하세요.",
                   active: false,
                 },
               ].map((cert, idx) => (
