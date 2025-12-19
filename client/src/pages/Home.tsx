@@ -13,7 +13,7 @@ import {
   Zap,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import image from "../../public/images/hero_developer.png"
+import image from "../../public/images/hero_developer.png";
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -111,7 +111,9 @@ export default function Home() {
         {/* Progress Indicator */}
         <motion.div
           className="fixed top-0 left-0 h-1 bg-accent z-50"
-          animate={{ width: `${((currentSection + 1) / sections.length) * 100}%` }}
+          animate={{
+            width: `${((currentSection + 1) / sections.length) * 100}%`,
+          }}
           transition={{ type: "spring", stiffness: 120, damping: 25 }}
         />
         {/* Section Counter */}
@@ -268,7 +270,7 @@ export default function Home() {
                     <ul className="space-y-3 text-lg">
                       <li className="flex items-center gap-3">
                         <Check className="w-5 h-5 text-primary" /> 타이핑을 하되
-                        꼭 듣기
+                        이해가 중요
                       </li>
                       <li className="flex items-center gap-3">
                         <Check className="w-5 h-5 text-primary" /> 핵심 키워드만
@@ -463,7 +465,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                 >
                   <div className="font-mono text-accent mb-4 text-2xl">
-                    PEER_LEARNING_PROTOCOL
+                    COLLABORATION
                   </div>
                   <h2
                     className="text-7xl font-bold mb-8 leading-tight"
@@ -474,9 +476,9 @@ export default function Home() {
                   >
                     TOGETHER
                     <br />
-                    WE GO
+                    MAKE
                     <br />
-                    FURTHER
+                    BATTER
                   </h2>
                   <motion.div
                     initial={{ scale: 0.5, opacity: 0 }}
@@ -633,7 +635,7 @@ export default function Home() {
                 <div className="space-y-6">
                   {[
                     {
-                      title: "정보처리기사",
+                      title: "기사 자격증",
                       type: "ESSENTIAL",
                       desc: "개발자의 기본 소양. 필기와 실기 모두 수업 내용과 연계됩니다.",
                       active: true,
@@ -647,7 +649,7 @@ export default function Home() {
                     {
                       title: "전공 자격증",
                       type: "OPTIONAL",
-                      desc: "자신의 전공을 살린 특화 자격증 하나를 추가하세요.",
+                      desc: "자신의 특성을 살린 특화 자격증 하나를 추가하세요.",
                       active: false,
                     },
                   ].map((cert, idx) => (
@@ -811,10 +813,11 @@ export default function Home() {
             <button
               key={section.id}
               onClick={() => setCurrentSection(idx)}
-              className={`p-3 transition-all duration-300 border-2 relative group ${currentSection === idx
-                ? "bg-primary text-primary-foreground border-primary translate-x-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-                : "bg-background text-muted-foreground border-transparent hover:border-border hover:text-foreground"
-                }`}
+              className={`p-3 transition-all duration-300 border-2 relative group ${
+                currentSection === idx
+                  ? "bg-primary text-primary-foreground border-primary translate-x-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                  : "bg-background text-muted-foreground border-transparent hover:border-border hover:text-foreground"
+              }`}
               title={section.label}
             >
               <section.icon className="w-6 h-6" />
@@ -952,16 +955,25 @@ export default function Home() {
             <motion.div
               animate={{ x: [0, -2400] }}
               transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-              className="flex gap-12 whitespace-nowrap text-sm font-bold uppercase tracking-widest" style={{ fontFamily: "'Space Grotesk', 'Noto Sans KR', sans-serif" }}
+              className="flex gap-12 whitespace-nowrap text-sm font-bold uppercase tracking-widest"
+              style={{
+                fontFamily: "'Space Grotesk', 'Noto Sans KR', sans-serif",
+              }}
             >
               {[...Array(6)].map((_, i) => (
                 <div key={i} className="flex gap-8 shrink-0">
-                  <span>Java Core</span><span>•</span>
-                  <span>Git Strategy</span><span>•</span>
-                  <span>Code Review</span><span>•</span>
-                  <span>Daily Commit</span><span>•</span>
-                  <span>Peer Learning</span><span>•</span>
-                  <span>Algorithm</span><span>•</span>
+                  <span>Java Core</span>
+                  <span>•</span>
+                  <span>Git Strategy</span>
+                  <span>•</span>
+                  <span>Code Review</span>
+                  <span>•</span>
+                  <span>Daily Commit</span>
+                  <span>•</span>
+                  <span>Peer Learning</span>
+                  <span>•</span>
+                  <span>Algorithm</span>
+                  <span>•</span>
                 </div>
               ))}
             </motion.div>
@@ -1016,8 +1028,8 @@ export default function Home() {
                 </h3>
                 <ul className="space-y-3 text-lg">
                   <li className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-primary" /> 타이핑을 하되 꼭
-                    듣기
+                    <Check className="w-5 h-5 text-primary" /> 타이핑을 하되
+                    이해가 중요
                   </li>
                   <li className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-primary" /> 핵심 키워드만
@@ -1225,14 +1237,14 @@ export default function Home() {
             <div className="absolute inset-0 opacity-20 bg-[url('/images/collaboration_abstract.png')] bg-cover bg-center mix-blend-overlay" />
             <div className="relative z-10">
               <div className="font-mono text-accent mb-4 text-xl">
-                PEER_LEARNING_PROTOCOL
+                COLLABORATION
               </div>
               <h2 className="font-heading text-6xl md:text-7xl font-bold mb-8 leading-tight">
                 TOGETHER
                 <br />
-                WE GO
+                MAKE
                 <br />
-                FURTHER
+                BATTER
               </h2>
               <motion.div
                 initial={{ scale: 0.5, opacity: 0 }}
@@ -1425,7 +1437,7 @@ export default function Home() {
             >
               {[
                 {
-                  title: "정보처리기사",
+                  title: "기사 자격증",
                   type: "ESSENTIAL",
                   desc: "개발자의 기본 소양. 필기와 실기 모두 수업 내용과 연계됩니다.",
                   active: true,
@@ -1437,9 +1449,9 @@ export default function Home() {
                   active: true,
                 },
                 {
-                  title: "전공 자격증",
+                  title: "기타 자격증",
                   type: "OPTIONAL",
-                  desc: "자신의 전공을 살린 특화 자격증 하나를 추가하세요.",
+                  desc: "자신의 특성을 살린 특화 자격증 하나를 추가하세요.",
                   active: false,
                 },
               ].map((cert, idx) => (
