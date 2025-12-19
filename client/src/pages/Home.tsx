@@ -31,7 +31,7 @@ export default function Home() {
     { id: "data", label: "AI", icon: Database },
     { id: "team", label: "Team", icon: Users },
     { id: "records", label: "Records", icon: Database },
-    { id: "certs", label: "Certs", icon: Check },
+    { id: "certs", label: "Certs", icon: BookOpen },
     { id: "qna", label: "Q&A", icon: Keyboard },
     { id: "closing", label: "Thanks", icon: Check },
   ];
@@ -930,7 +930,7 @@ export default function Home() {
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={{ scale: 1, opacity: 0.9 }}
                 transition={{ duration: 1.5 }}
-                src="/images/hero_developer.png"
+                src={`/${import.meta.env.BASE_URL}images/hero_developer.png`}
                 alt="Developer Workspace"
                 className="absolute inset-0 w-full h-full object-cover mix-blend-multiply"
               />
