@@ -108,13 +108,11 @@ export default function Home() {
     return (
       <div className="fixed inset-0 bg-background text-foreground overflow-hidden z-[1000]">
         {/* Progress Indicator */}
-        <div
-          className="fixed top-0 left-0 right-0 h-1 bg-accent z-50"
-          style={{
-            width: `${((currentSection + 1) / sections.length) * 100}%`,
-          }}
+        <motion.div
+          className="fixed top-0 left-0 h-1 bg-accent z-50"
+          animate={{ width: `${((currentSection + 1) / sections.length) * 100}%` }}
+          transition={{ type: "spring", stiffness: 120, damping: 25 }}
         />
-
         {/* Section Counter */}
         <div className="fixed top-4 right-4 bg-primary text-primary-foreground px-4 py-2 font-mono font-bold text-sm border-2 border-border z-50">
           {currentSection + 1} / {sections.length}
@@ -183,7 +181,7 @@ export default function Home() {
                     className="flex items-center gap-4 bg-primary text-primary-foreground p-6 border-2 border-border"
                   >
                     <div className="w-16 h-16 bg-primary-foreground text-primary flex items-center justify-center font-bold text-2xl border-2 border-primary-foreground">
-                      KCW
+                      K
                     </div>
                     <div className="text-left">
                       <div className="font-bold text-xl">김찬우</div>
@@ -200,7 +198,7 @@ export default function Home() {
                     className="flex items-center gap-4 bg-accent text-accent-foreground p-6 border-2 border-border"
                   >
                     <div className="w-16 h-16 bg-accent-foreground text-accent flex items-center justify-center font-bold text-2xl border-2 border-accent-foreground">
-                      OSH
+                      O
                     </div>
                     <div className="text-left">
                       <div className="font-bold text-xl">오상현</div>
@@ -812,11 +810,10 @@ export default function Home() {
             <button
               key={section.id}
               onClick={() => setCurrentSection(idx)}
-              className={`p-3 transition-all duration-300 border-2 relative group ${
-                currentSection === idx
-                  ? "bg-primary text-primary-foreground border-primary translate-x-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-                  : "bg-background text-muted-foreground border-transparent hover:border-border hover:text-foreground"
-              }`}
+              className={`p-3 transition-all duration-300 border-2 relative group ${currentSection === idx
+                ? "bg-primary text-primary-foreground border-primary translate-x-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                : "bg-background text-muted-foreground border-transparent hover:border-border hover:text-foreground"
+                }`}
               title={section.label}
             >
               <section.icon className="w-6 h-6" />
@@ -888,7 +885,7 @@ export default function Home() {
                     }
                   >
                     <div className="w-10 h-10 bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg border-2 border-border group-hover:scale-110 transition-transform">
-                      KCW
+                      K
                     </div>
                     <div className="text-left">
                       <div className="font-bold text-sm">김찬우</div>
@@ -905,7 +902,7 @@ export default function Home() {
                     }
                   >
                     <div className="w-10 h-10 bg-accent text-accent-foreground flex items-center justify-center font-bold text-lg border-2 border-border group-hover:scale-110 transition-transform">
-                      OSH
+                      O
                     </div>
                     <div className="text-left">
                       <div className="font-bold text-sm">오상현</div>
@@ -952,27 +949,18 @@ export default function Home() {
           {/* Marquee Strip */}
           <div className="bg-foreground text-background py-3 overflow-hidden border-t-4 border-border">
             <motion.div
-              animate={{ x: [0, -1000] }}
-              transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-              className="flex gap-8 whitespace-nowrap text-sm font-bold uppercase tracking-widest"
-              style={{
-                fontFamily: "'Space Grotesk', 'Noto Sans KR', sans-serif",
-              }}
+              animate={{ x: [0, -2400] }}
+              transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+              className="flex gap-12 whitespace-nowrap text-sm font-bold uppercase tracking-widest" style={{ fontFamily: "'Space Grotesk', 'Noto Sans KR', sans-serif" }}
             >
-              {[...Array(3)].map((_, i) => (
-                <div key={i} className="flex gap-8">
-                  <span>Java Core</span>
-                  <span>•</span>
-                  <span>Git Strategy</span>
-                  <span>•</span>
-                  <span>Code Review</span>
-                  <span>•</span>
-                  <span>Daily Commit</span>
-                  <span>•</span>
-                  <span>Peer Learning</span>
-                  <span>•</span>
-                  <span>Algorithm</span>
-                  <span>•</span>
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="flex gap-8 shrink-0">
+                  <span>Java Core</span><span>•</span>
+                  <span>Git Strategy</span><span>•</span>
+                  <span>Code Review</span><span>•</span>
+                  <span>Daily Commit</span><span>•</span>
+                  <span>Peer Learning</span><span>•</span>
+                  <span>Algorithm</span><span>•</span>
                 </div>
               ))}
             </motion.div>
