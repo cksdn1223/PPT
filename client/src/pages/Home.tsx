@@ -106,15 +106,15 @@ export default function Home() {
   // Presentation Mode View
   if (presentationMode) {
     return (
-      <div className="fixed inset-0 bg-background text-foreground overflow-hidden z-[1000]">
+      <div className="fixed inset-0 bg-background text-foreground overflow-hidden z-1000">
         {/* Progress Indicator */}
-        <div
-          className="fixed top-0 left-0 right-0 h-1 bg-accent z-50"
-          style={{
+        <motion.div
+          className="fixed top-0 left-0 h-1 bg-accent z-50"
+          animate={{
             width: `${((currentSection + 1) / sections.length) * 100}%`,
           }}
+          transition={{ type: "spring", stiffness: 120, damping: 25 }}
         />
-
         {/* Section Counter */}
         <div className="fixed top-4 right-4 bg-primary text-primary-foreground px-4 py-2 font-mono font-bold text-sm border-2 border-border z-50">
           {currentSection + 1} / {sections.length}
@@ -151,7 +151,7 @@ export default function Home() {
                 className="relative z-10 text-center max-w-4xl"
               >
                 <div className="inline-block bg-accent text-accent-foreground px-6 py-2 font-mono text-lg font-bold mb-8 border-2 border-border">
-                  Korea IT // ~2025.12.10
+                  SYSTEM_READY // 2025
                 </div>
                 <h1
                   className="text-9xl font-bold leading-[0.9] tracking-tighter mb-8"
@@ -160,17 +160,17 @@ export default function Home() {
                     fontFamily: "'Noto Sans KR', sans-serif",
                   }}
                 >
-                  LESSON
+                  DEVELOPER
                   <br />
                   <span className="text-primary">SUCCESS</span>
                   <br />
                   PROTOCOL
                 </h1>
                 <p className="text-3xl text-muted-foreground max-w-3xl mx-auto mb-12 font-medium">
-                  선배 기수가 전하는 실전 학습 노하우.
+                  선배 개발자가 전하는 실전 학습 노하우.
                   <br />
                   <span className="text-foreground decoration-accent underline decoration-4 underline-offset-4">
-                    여러분도 하실 수 있습니다
+                    영타보다 이해가 우선입니다.
                   </span>
                 </p>
 
@@ -314,7 +314,7 @@ export default function Home() {
                     {
                       num: 1,
                       title: "Java Core",
-                      desc: "변수명, 타입, 메서드 및 클래스의 구조를 확실히 이해하세요.",
+                      desc: "변수명, 메모리 구조(Stack/Heap), OOP 4대 원칙을 확실히 이해하세요.",
                     },
                     {
                       num: 2,
@@ -781,7 +781,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground overflow-x-hidden">
       {/* Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-accent origin-left z-[100]"
+        className="fixed top-0 left-0 right-0 h-1 bg-accent origin-left z-100"
         style={{ scaleX }}
       />
 
@@ -805,7 +805,7 @@ export default function Home() {
           }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          GUIDE
+          DEV.GUIDE
         </div>
         <div className="flex-1 flex flex-col gap-4 justify-center w-full items-center">
           {sections.map((section, idx) => (
@@ -825,6 +825,9 @@ export default function Home() {
               </span>
             </button>
           ))}
+        </div>
+        <div className="font-mono text-xs rotate-90 mb-8 text-muted-foreground">
+          v2025.4
         </div>
       </nav>
 
@@ -848,13 +851,13 @@ export default function Home() {
                 variants={fadeInUp}
                 className="inline-block bg-accent text-accent-foreground px-4 py-1 font-mono text-sm font-bold mb-6 w-max border-2 border-border"
               >
-                Korea IT // ~2025.12.10
+                SYSTEM_READY // 2025
               </motion.div>
               <motion.h1
                 variants={fadeInUp}
                 className="font-heading text-6xl md:text-8xl font-bold leading-[0.9] tracking-tighter mb-8"
               >
-                LESSON
+                DEVELOPER
                 <br />
                 <span className="text-primary">SUCCESS</span>
                 <br />
@@ -864,7 +867,7 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-12 font-medium leading-relaxed"
               >
-                선배 기수가 전하는 실전 학습 노하우.
+                선배 개발자가 전하는 실전 학습 노하우.
                 <br />
                 <span className="text-foreground decoration-accent underline decoration-4 underline-offset-4">
                   여러분들도 하실 수 있습니다
@@ -952,15 +955,15 @@ export default function Home() {
           {/* Marquee Strip */}
           <div className="bg-foreground text-background py-3 overflow-hidden border-t-4 border-border">
             <motion.div
-              animate={{ x: [0, -1000] }}
-              transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-              className="flex gap-8 whitespace-nowrap text-sm font-bold uppercase tracking-widest"
+              animate={{ x: [0, -2400] }}
+              transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+              className="flex gap-12 whitespace-nowrap text-sm font-bold uppercase tracking-widest"
               style={{
                 fontFamily: "'Space Grotesk', 'Noto Sans KR', sans-serif",
               }}
             >
-              {[...Array(3)].map((_, i) => (
-                <div key={i} className="flex gap-8">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="flex gap-8 shrink-0">
                   <span>Java Core</span>
                   <span>•</span>
                   <span>Git Strategy</span>
@@ -1078,7 +1081,7 @@ export default function Home() {
                 {
                   num: 1,
                   title: "Java Core",
-                  desc: "변수명, 타입, 메서드 및 클래스의 구조를 확실히 이해하세요.",
+                  desc: "변수명, 메모리 구조(Stack/Heap), OOP 4대 원칙을 확실히 이해하세요.",
                 },
                 {
                   num: 2,
@@ -1582,4 +1585,7 @@ export default function Home() {
       </main>
     </div>
   );
+}
+function useMemo(arg0: () => number, arg1: number[]) {
+  throw new Error("Function not implemented.");
 }
