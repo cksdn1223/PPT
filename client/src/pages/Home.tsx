@@ -13,6 +13,7 @@ import {
   Zap,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import image from "../../public/images/hero_developer.png"
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -930,7 +931,7 @@ export default function Home() {
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={{ scale: 1, opacity: 0.9 }}
                 transition={{ duration: 1.5 }}
-                src={`/${import.meta.env.BASE_URL}images/hero_developer.png`}
+                src={image}
                 alt="Developer Workspace"
                 className="absolute inset-0 w-full h-full object-cover mix-blend-multiply"
               />
