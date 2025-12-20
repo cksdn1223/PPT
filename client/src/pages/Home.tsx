@@ -12,7 +12,7 @@ import {
   Users,
   Zap,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import image from "../../public/images/hero_developer.png";
 
 export default function Home() {
@@ -25,17 +25,20 @@ export default function Home() {
     restDelta: 0.001,
   });
 
-  const sections = [
-    { id: "intro", label: "Intro", icon: Zap },
-    { id: "strategy", label: "Strategy", icon: BookOpen },
-    { id: "code", label: "Code", icon: Code },
-    { id: "data", label: "AI", icon: Database },
-    { id: "team", label: "Team", icon: Users },
-    { id: "records", label: "Records", icon: Database },
-    { id: "certs", label: "Certs", icon: BookOpen },
-    { id: "qna", label: "Q&A", icon: Keyboard },
-    { id: "closing", label: "Thanks", icon: Check },
-  ];
+  const sections = useMemo(
+    () => [
+      { id: "intro", label: "Intro", icon: Zap },
+      { id: "strategy", label: "Strategy", icon: BookOpen },
+      { id: "code", label: "Code", icon: Code },
+      { id: "data", label: "AI", icon: Database },
+      { id: "team", label: "Team", icon: Users },
+      { id: "records", label: "Records", icon: Database },
+      { id: "certs", label: "Certs", icon: BookOpen },
+      { id: "qna", label: "Q&A", icon: Keyboard },
+      { id: "closing", label: "Thanks", icon: Check },
+    ],
+    []
+  );
 
   // Keyboard Navigation
   useEffect(() => {
@@ -57,14 +60,7 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [presentationMode, sections.length]);
 
-  // Scroll to current section in normal mode
-  useEffect(() => {
-    if (presentationMode) return;
-    const element = document.getElementById(sections[currentSection].id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [currentSection, presentationMode, sections]);
+
 
   // Scroll spy - update active section based on scroll position
   useEffect(() => {
@@ -789,7 +785,10 @@ export default function Home() {
       {/* Presentation Mode Toggle */}
       <div className="fixed top-4 right-4 z-50">
         <Button
-          onClick={() => setPresentationMode(true)}
+          onClick={() => {
+            setCurrentSection(0);
+            setPresentationMode(true);
+          }}
           className="bg-primary text-primary-foreground border-2 border-border px-6 py-3 font-bold flex items-center gap-2 hover:translate-y-1 transition-transform shadow-[4px_4px_0px_0px_var(--color-border)]"
         >
           <Keyboard className="w-5 h-5" /> START PRESENTATION
@@ -804,7 +803,11 @@ export default function Home() {
             fontWeight: 900,
             fontFamily: "'Space Grotesk', 'Noto Sans KR', sans-serif",
           }}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={() => {
+            const el = document.getElementById("intro");
+            el?.scrollIntoView({ behavior: "smooth", block: "start" });
+            setCurrentSection(0);
+          }}
         >
           GUIDE
         </div>
@@ -812,12 +815,15 @@ export default function Home() {
           {sections.map((section, idx) => (
             <button
               key={section.id}
-              onClick={() => setCurrentSection(idx)}
-              className={`p-3 transition-all duration-300 border-2 relative group ${
-                currentSection === idx
-                  ? "bg-primary text-primary-foreground border-primary translate-x-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-                  : "bg-background text-muted-foreground border-transparent hover:border-border hover:text-foreground"
-              }`}
+              onClick={() => {
+                const el = document.getElementById(section.id);
+                el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                setCurrentSection(idx);
+              }}
+              className={`p-3 transition-all duration-300 border-2 relative group ${currentSection === idx
+                ? "bg-primary text-primary-foreground border-primary translate-x-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                : "bg-background text-muted-foreground border-transparent hover:border-border hover:text-foreground"
+                }`}
               title={section.label}
             >
               <section.icon className="w-6 h-6" />
@@ -922,7 +928,11 @@ export default function Home() {
                 <Button
                   size="lg"
                   className="bg-primary text-primary-foreground hover:bg-primary/90 border-2 border-border rounded-none px-8 py-6 text-lg font-bold shadow-[6px_6px_0px_0px_var(--color-border)] hover:translate-y-1 hover:shadow-[2px_2px_0px_0px_var(--color-border)] transition-all"
-                  onClick={() => setCurrentSection(1)}
+                  onClick={() => {
+                    const el = document.getElementById("strategy");
+                    el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    setCurrentSection(1);
+                  }}
                 >
                   START GUIDE <ChevronDown className="ml-2 w-5 h-5" />
                 </Button>
